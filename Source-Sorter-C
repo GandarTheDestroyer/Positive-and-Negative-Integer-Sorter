@@ -1,0 +1,100 @@
+#include <stdio.h>
+int main()
+{
+char x;
+int z=0;
+int d=0;
+int c=1;
+int i;
+int j;
+int holder;
+int n;
+int number[99];
+int b=0;
+printf(" Positive & Negative Integer Sorter by Licayan & Faller\n\n");
+//User Manual//
+printf(" Would you like to see the user manual? (Input Y or N): \n ");
+do{
+fflush(stdin);
+scanf(" %c", &x);
+if (x=='y'||x=='Y'){
+printf("\n User Manual\n This Integer Sorter is only able to sort Positive\n");
+printf(" and Negative Integers only; meaning Decimals and\n");
+printf(" other invalid inputs like letters and special char-\n");
+printf(" acters will not work and could break the program\n");
+printf(" as it is not meant to handle these. An example of\n");
+printf(" integers are 5, 146, -235, or 0 but NOT 1.69, 4.04,\n");
+printf(" or -2345.1234.\n");
+printf(" From testing the program, it generally stops work-\n");
+printf(" ing as intended when the number of integers to be\n");
+printf(" sorted is greater than 99 (n>99); hence, the user\n");
+printf(" should only input with a maximum of 99. After input-\n");
+printf(" ting 'n', simply input the integers and when the\n");
+printf(" final integer has been inputted, the program will\n");
+printf(" output a list of both the Ascending and Descending\n");
+printf(" Orders.\n\n");
+z=1;
+}
+else if (x=='n'||x=='N'){
+printf("\n");
+z=1;
+}
+else{
+printf(" Invalid Input | Please input Y or N:\n ");
+z=0;
+}
+} while (z==0);
+//Number of Elements in Array//
+printf(" Input how many numbers will be sorted (Maximum of 99): \n ");
+do{
+fflush(stdin);
+scanf("%d", &n);
+if (n>0&&n<100){
+d=1;
+}
+else if (n>99){
+printf(" Invalid Input | Please input less than 100 only:\n ");
+d=0;
+}
+else if (n<1){
+printf(" Invalid Input | Please input valid integers only:\n ");
+d=0;
+}
+else{
+printf(" Invalid Input | Please input valid integers only:\n ");
+d=0;
+}
+} while (d==0);
+//Input Integers into Array//
+printf("\n Enter the %d numbers (Positive & Negative Integers only): \n", n);
+for (i=0; i<n; ++i){
+fflush(stdin);
+printf(" %d. ", c);
+scanf("%d", &number[i]);
+c++;
+}
+//Sorting Algorithm//
+for (i=0; i<n; ++i){
+for (j=i+1; j<n; ++j){
+if (number[i]>number[j]){
+holder=number[i];
+number[i]=number[j];
+number[j]=holder;
+}
+}
+}
+//Output Ascending List//
+printf("\n Ascending Order\n");
+for (i=0; i<n; ++i){
+printf(" %2d. %d\n", i+1, number[i]);
+}
+//Output Descending List//
+printf("\n Descending Order\n");
+for (i=n-1; i>=0; i--){
+if (b<n){
+printf(" %2d. %d\n", b+1, number[i]);
+b++;
+}
+}
+return 0;
+}
