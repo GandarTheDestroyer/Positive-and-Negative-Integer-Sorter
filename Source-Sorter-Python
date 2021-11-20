@@ -1,0 +1,103 @@
+print("\n Positive & Negative Integer Sorting Program")
+print(" Python Version by Licayan & Faller\n")
+# Program Restarter [1/2]
+a = 0
+while a == 0:
+ # User Manual
+ z = 0
+ while z == 0:
+ x = input(" Would you like to see the user manual? (Input Y or N): ")
+ if x == "y" or x == "Y":
+ print("")
+ print(" User Manual")
+ print(" This Positive & Negative Integer Sorting Program will first")
+ print(" ask the user for how many numbers will be put into a list")
+ print(" and then ask the user again for integers in the list to be")
+ print(" sorted. Upon inputting the last integer for the list, the")
+ print(" program will automatically output the list in both ascending")
+ print(" and descending orders. At the end, the program will finally")
+ print(" ask the user whether they would like to restart the program")
+ print(" or not. Inputting 'Y ' will restart the program to be able to")
+ print(" sort more integers and choosing 'N ' will end the program.")
+ print(" There are error checkers in every step of the program, which")
+ print(" means that any invalid input by the user will not be able to")
+ print(" cause any errors.")
+ print(" This newer version of the Integer Sorting Program written")
+ print(" in Python has both a far simpler codebase and has added")
+ print(" features like error checkers for all the user inputs and a")
+ print(" built-in program restarter, as compared to the version writ-")
+ print(" ten in C which lacked some of these features.")
+ print("") # for blank space only
+ z = 1
+ elif x == "n" or x == "N":
+ print("") # for blank space only
+ z = 1
+ else:
+ print(" Invalid Input | Please input Y or N")
+ z = 0
+ # Number of Elements in List
+ n = 0 # dictates number of integers
+ d = 0
+ while d == 0:
+ try:
+ n = int(input(" Input how many numbers will be sorted: "))
+ except ValueError:
+ print(" Invalid Input | Please input integers greater than 1 only")
+ d = 0
+ else:
+ if n > 1:
+ d = 1
+ elif n < 2:
+ print(" Invalid Input | Please input integers greater than 1 only")
+ d = 0
+ else:
+ print(" Invalid Input | Please input integers greater than 1 only")
+ d = 0
+ print("") # for blank space only
+ # Input Integers into List
+ print(" Enter the " + str(n) + " numbers (Positive & Negative Integers only):")
+ num = []
+ b = 0
+ c = 0
+ while c < n:
+ while b == 0:
+ try:
+ num.append(int(input(" " + str(c + 1) + ": ")))
+ break
+ except ValueError:
+ print(" Invalid Input | Please input valid integers only")
+ b = 0
+ c += 1
+ print("") # for blank space only
+ # Output Ascending List
+ print(" Ascending Order")
+ num.sort()
+ i = 0
+ while i < n:
+ print(" " + str(i + 1) + ". " + str(num[i]))
+ i += 1
+ print("") # for blank space only
+ # Output Descending List
+ print(" Descending Order")
+ num.sort(reverse=True)
+ i = 0
+ while i < n:
+ print(" " + str(i + 1) + ". " + str(num[i]))
+ i += 1
+ print("") # for blank space only
+ # Program Restarter [2/2]
+ w = 0
+ while w == 0:
+ y = input(" Would you like to restart the program? (Input Y or N): ")
+ if y == "y" or y == "Y":
+ print("") # for blank space only
+ a = 0
+ w = 1
+ elif y == "n" or y == "N":
+ print(" Goodbye.")
+ a = 1
+ w = 1
+ else:
+ print(" Invalid Input | Please input Y or N")
+ a = 0
+ w = 0
